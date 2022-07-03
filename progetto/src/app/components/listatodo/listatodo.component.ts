@@ -22,19 +22,37 @@ export class ListatodoComponent implements OnInit {
 
   obj!:string;
   obj2!:string;
+  visualizza:boolean = true;
 
   addList():void{
+    if (this.obj.trim() !== ""){
+
+
+    this.visualizza = false;
+    
+    
     let obj: iTodo = {
       id:0,
       title: this.obj,
       completed: false,
      }
+     setTimeout(():void => {
+      this.visualizza = true;
+      }, 2000);
   
      this.todosService.pushare(obj);
      this.obj = '';
+    }
   }
+
   elimina(lista:iTodo) {
+    this.visualizza = false;
+
+    setTimeout(():void => {
+      this.visualizza = true;
+      }, 2000);
     this.todosService.elimina(lista)
+
    
 
   }
@@ -42,8 +60,13 @@ export class ListatodoComponent implements OnInit {
     this.obj2 = modi.title;
   }
   modifica2(modi:iTodo) { 
+    this.visualizza = false;
+
     modi.title = this.obj2;
     this.todosService.modifica(modi);
+    setTimeout(():void => {
+      this.visualizza = true;
+      }, 2000);
 
   }
 

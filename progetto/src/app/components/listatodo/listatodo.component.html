@@ -1,7 +1,7 @@
 
-<ul >
+<ul *ngIf="visualizza == true"  >
    <li *ngFor="let item of listaTodo">
-         <label for="box"> {{item.id}} {{item.title}} </label>
+         <label for="box"> {{item.title}} </label>
          <input
          type="checkbox" id="box"
          [checked]="item.completed"
@@ -25,10 +25,10 @@
       <p>sezione per modificare il dato</p>
             <input type="text" [(ngModel)]="obj2">
    </div>
-  <!--  <div *ngIf="visualizza == false">
+   <div *ngIf="visualizza == false">
       <h1>
           sto recuperando i task
       </h1>
-  </div> -->
+  </div>
 
-  <!--  *ngIf="viualizza == true" -->
+  
