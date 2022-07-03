@@ -1,0 +1,15 @@
+<ul  *ngIf="visualizza == true">
+    <li *ngFor="let item of listacompleta" >
+        <label for="box"> {{item.id}} {{item.title}}</label>
+        <input
+        type="checkbox" id="box"
+        [checked]="item.completed"
+        (change)="item.completed = !item.completed"/>
+
+    </li>
+</ul>
+<div *ngIf="visualizza == false">
+    <h1>
+        sto recuperando i task
+    </h1>
+</div>
